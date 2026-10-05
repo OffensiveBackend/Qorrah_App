@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F1E8"
+    tools:context=".CourseOutlineAndModulesActivity">
+
+    <!-- ============================================================
+         TOP APP BAR
+         ============================================================ -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/courseTopBar"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:background="#F5F1E8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Back -->
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="-8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Go back"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="#202020" />
+
+        <!-- Course identity -->
+        <LinearLayout
+            android:id="@+id/courseIdentity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/buttonBack"
+            app:layout_constraintEnd_toStartOf="@id/buttonCourseMenu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/textCourseLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COURSE"
+                android:textColor="#77736B"
+                android:textSize="10sp"
+                android:fontFamily="sans"
+                android:letterSpacing="0.16"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textCourseTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="BCS 113: Electronics"
+                android:textColor="#171717"
+                android:textSize="19sp"
+                android:fontFamily="sans"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Course options -->
+        <ImageButton
+            android:id="@+id/buttonCourseMenu"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Course options"
+            android:padding="10dp"
+            android:src="@drawable/ic_more_vert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="#292929" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- ============================================================
+         MAIN SCROLLING COURSE ENVIRONMENT
+         ============================================================ -->
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/courseScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="36dp"
+        app:layout_constraintTop_toBottomOf="@id/courseTopBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/courseContentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ====================================================
+                 COURSE INTRODUCTION
+                 ==================================================== -->
+
+            <TextView
+                android:id="@+id/textCourseEnvironmentTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="Course outline"
+                android:textColor="#171717"
+                android:textSize="30sp"
+                android:fontFamily="sans"
+                android:letterSpacing="-0.02"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textCourseEnvironmentSubtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Your learning path, organized from the course material to the concepts you will study."
+                android:textColor="#6E6A63"
+                android:textSize="14sp"
+                android:fontFamily="sans"
+                android:lineSpacingExtra="3dp" />
+
+
+            <!-- ====================================================
+                 COURSE OUTLINE DOCUMENT
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/courseOutlineCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="112dp"
+                    android:padding="18dp">
+
+                    <!-- PDF visual -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/outlineDocumentIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="64dp"
+                        app:cardBackgroundColor="#F1EDE5"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PDF"
+                                android:textColor="#37342F"
+                                android:textSize="10sp"
+                                android:fontFamily="sans"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="⌁"
+                                android:textColor="#77736B"
+                                android:textSize="15sp" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <!-- Outline information -->
+                    <LinearLayout
+                        android:id="@+id/outlineInformation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/outlineDocumentIcon"
+                        app:layout_constraintEnd_toStartOf="@id/buttonOpenOutline"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <TextView
+                            android:id="@+id/textOutlineTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Course_Outline"
+                            android:textColor="#1C1B19"
+                            android:textSize="16sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textOutlineDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Course outline and learning structure"
+                            android:textColor="#77736B"
+                            android:textSize="12sp"
+                            android:fontFamily="sans" />
+
+                        <TextView
+                            android:id="@+id/textOutlineStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="Tap to open"
+                            android:textColor="#57534C"
+                            android:textSize="11sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <!-- Open outline -->
+                    <ImageButton
+                        android:id="@+id/buttonOpenOutline"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Open course outline"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_chevron_right"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="#35322E" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ====================================================
+                 MODULE SECTION HEADER
+                 ==================================================== -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/modulesHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/buttonAddModule"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:id="@+id/textModulesTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Modules"
+                        android:textColor="#171717"
+                        android:textSize="22sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textModulesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="1 module"
+                        android:textColor="#77736B"
+                        android:textSize="12sp"
+                        android:fontFamily="sans" />
+
+                </LinearLayout>
+
+
+                <!-- Add module -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonAddModule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:minWidth="0dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    android:text="+  Module"
+                    android:textAllCaps="false"
+                    android:textColor="#26231F"
+                    android:textSize="12sp"
+                    android:fontFamily="sans"
+                    android:textStyle="bold"
+                    app:backgroundTint="#E9E3D9"
+                    app:cornerRadius="14dp"
+                    app:elevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:strokeColor="#DDD6CA"
+                    app:strokeWidth="1dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- ====================================================
+                 MODULE 001
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/moduleCard001"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <!-- Module top row -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/textModuleNumber001"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MODULE 01"
+                            android:textColor="#8A857C"
+                            android:textSize="10sp"
+                            android:fontFamily="sans"
+                            android:letterSpacing="0.12"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageButton
+                            android:id="@+id/buttonModuleMenu001"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="-7dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Module options"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_more_vert"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="#5E5A53" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <!-- Module title -->
+                    <TextView
+                        android:id="@+id/textModuleTitle001"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:text="Fundamentals of Semiconductor Physics"
+                        android:textColor="#1B1A18"
+                        android:textSize="19sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold" />
+
+                    <!-- Module description -->
+                    <TextView
+                        android:id="@+id/textModuleDescription001"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:text="Atomic structure, energy bands, semiconductor materials and the principles behind electronic devices."
+                        android:textColor="#6E6A63"
+                        android:textSize="13sp"
+                        android:fontFamily="sans"
+                        android:lineSpacingExtra="3dp" />
+
+
+                    <!-- Module divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="17dp"
+                        android:background="#EEE9E0" />
+
+
+                    <!-- Module metadata -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp">
+
+                        <TextView
+                            android:id="@+id/textModuleObjectives001"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17 objectives"
+                            android:textColor="#77736B"
+                            android:textSize="11sp"
+                            android:fontFamily="sans"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textModuleProgress001"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Not started"
+                            android:textColor="#77736B"
+                            android:textSize="11sp"
+                            android:fontFamily="sans"
+                            app:layout_constraintEnd_toStartOf="@id/buttonOpenModule001"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginEnd="10dp" />
+
+                        <ImageButton
+                            android:id="@+id/buttonOpenModule001"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="Open module"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:tint="#36332F" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ====================================================
+                 EMPTY / CREATE MODULE STATE
+                 ====================================================
+
+                 Kept below the real module so the screen can naturally
+                 accommodate dynamically created modules later.
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/createModuleCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#F1EDE5"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#DDD6CA"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="94dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <TextView
+                        android:id="@+id/textCreateModulePlus"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:text="+"
+                        android:textColor="#46423B"
+                        android:textSize="25sp"
+                        android:fontFamily="sans"
+                        android:textStyle="normal" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textCreateModule"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Create a module here"
+                            android:textColor="#292621"
+                            android:textSize="14sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/textCreateModuleSubtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Build the next part of this course"
+                            android:textColor="#77736B"
+                            android:textSize="11sp"
+                            android:fontFamily="sans" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Bottom breathing room -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="18dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

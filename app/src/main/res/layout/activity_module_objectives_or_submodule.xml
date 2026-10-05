@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F1E8"
+    tools:context=".ModuleObjectivesOrSubmoduleActivity">
+
+
+    <!-- ============================================================
+         TOP APP BAR
+         ============================================================ -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/moduleTopBar"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="#F5F1E8"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <!-- Back -->
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="-8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Go back"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="#202020" />
+
+
+        <!-- Module identity -->
+        <LinearLayout
+            android:id="@+id/moduleIdentity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/buttonBack"
+            app:layout_constraintEnd_toStartOf="@id/buttonModuleMenu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <TextView
+                android:id="@+id/textModuleCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BCS 113: ELECTRONICS"
+                android:textColor="#77736B"
+                android:textSize="10sp"
+                android:fontFamily="sans"
+                android:letterSpacing="0.12"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textModuleTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Fundamentals of Semiconductor Physics"
+                android:textColor="#171717"
+                android:textSize="18sp"
+                android:fontFamily="sans"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <!-- Module options -->
+        <ImageButton
+            android:id="@+id/buttonModuleMenu"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Module options"
+            android:padding="10dp"
+            android:src="@drawable/ic_more_vert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="#292929" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/moduleScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="36dp"
+        app:layout_constraintTop_toBottomOf="@id/moduleTopBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <LinearLayout
+            android:id="@+id/moduleContentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!-- ====================================================
+                 MODULE INTRODUCTION
+                 ==================================================== -->
+
+            <TextView
+                android:id="@+id/textModuleSectionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="MODULE 01"
+                android:textColor="#8A857C"
+                android:textSize="10sp"
+                android:fontFamily="sans"
+                android:letterSpacing="0.16"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textModuleHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Fundamentals of Semiconductor Physics"
+                android:textColor="#171717"
+                android:textSize="29sp"
+                android:fontFamily="sans"
+                android:letterSpacing="-0.02"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textModuleDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:text="Work through the objectives in sequence to build an understanding of semiconductor physics and its role in electronic devices."
+                android:textColor="#6E6A63"
+                android:textSize="14sp"
+                android:fontFamily="sans"
+                android:lineSpacingExtra="3dp" />
+
+
+            <!-- ====================================================
+                 PROGRESS SUMMARY
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/moduleProgressCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="92dp"
+                    android:padding="17dp">
+
+
+                    <LinearLayout
+                        android:id="@+id/progressInformation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/textProgressPercentage"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/textProgressLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MODULE PROGRESS"
+                            android:textColor="#8A857C"
+                            android:textSize="9sp"
+                            android:fontFamily="sans"
+                            android:letterSpacing="0.14"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/textProgressStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Not started"
+                            android:textColor="#25231F"
+                            android:textSize="15sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textProgressPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textColor="#25231F"
+                        android:textSize="22sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- ====================================================
+                 OBJECTIVES HEADER
+                 ==================================================== -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/objectivesHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/textObjectivesTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Learning objectives"
+                        android:textColor="#171717"
+                        android:textSize="22sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/textObjectivesSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="Follow these objectives in sequence"
+                        android:textColor="#77736B"
+                        android:textSize="12sp"
+                        android:fontFamily="sans" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <!-- ====================================================
+                 OBJECTIVE 001
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/objectiveCard001"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="112dp"
+                    android:padding="17dp">
+
+
+                    <!-- Objective number -->
+                    <TextView
+                        android:id="@+id/textObjectiveNumber001"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="#F1EDE5"
+                        android:gravity="center"
+                        android:text="01"
+                        android:textColor="#3D3933"
+                        android:textSize="12sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <!-- Objective information -->
+                    <LinearLayout
+                        android:id="@+id/objectiveInformation001"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/textObjectiveNumber001"
+                        app:layout_constraintEnd_toStartOf="@id/buttonOpenObjective001"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveTitle001"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Atomic structure and energy bands"
+                            android:textColor="#1B1A18"
+                            android:textSize="16sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveDescription001"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Explore atomic structure, electron behaviour and the formation of energy bands."
+                            android:textColor="#77736B"
+                            android:textSize="12sp"
+                            android:fontFamily="sans"
+                            android:lineSpacingExtra="2dp" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveStatus001"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Not started"
+                            android:textColor="#8A857C"
+                            android:textSize="10sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <!-- Open objective -->
+                    <ImageButton
+                        android:id="@+id/buttonOpenObjective001"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Open objective"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chevron_right"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="#36332F" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <!-- ====================================================
+                 OBJECTIVE 002
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/objectiveCard002"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="104dp"
+                    android:padding="17dp">
+
+
+                    <TextView
+                        android:id="@+id/textObjectiveNumber002"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="#F1EDE5"
+                        android:gravity="center"
+                        android:text="02"
+                        android:textColor="#3D3933"
+                        android:textSize="12sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <LinearLayout
+                        android:id="@+id/objectiveInformation002"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/textObjectiveNumber002"
+                        app:layout_constraintEnd_toStartOf="@id/buttonOpenObjective002"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveTitle002"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Intrinsic and extrinsic semiconductors"
+                            android:textColor="#1B1A18"
+                            android:textSize="16sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveDescription002"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Understand pure and doped semiconductor materials and their electrical behaviour."
+                            android:textColor="#77736B"
+                            android:textSize="12sp"
+                            android:fontFamily="sans"
+                            android:lineSpacingExtra="2dp" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveStatus002"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Not started"
+                            android:textColor="#8A857C"
+                            android:textSize="10sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <ImageButton
+                        android:id="@+id/buttonOpenObjective002"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Open objective"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chevron_right"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="#36332F" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <!-- ====================================================
+                 OBJECTIVE 003
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/objectiveCard003"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="104dp"
+                    android:padding="17dp">
+
+
+                    <TextView
+                        android:id="@+id/textObjectiveNumber003"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="#F1EDE5"
+                        android:gravity="center"
+                        android:text="03"
+                        android:textColor="#3D3933"
+                        android:textSize="12sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <LinearLayout
+                        android:id="@+id/objectiveInformation003"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/textObjectiveNumber003"
+                        app:layout_constraintEnd_toStartOf="@id/buttonOpenObjective003"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveTitle003"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Charge carriers and conductivity"
+                            android:textColor="#1B1A18"
+                            android:textSize="16sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveDescription003"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Study charge carriers, carrier concentration and the factors that affect conductivity."
+                            android:textColor="#77736B"
+                            android:textSize="12sp"
+                            android:fontFamily="sans"
+                            android:lineSpacingExtra="2dp" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveStatus003"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Not started"
+                            android:textColor="#8A857C"
+                            android:textSize="10sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <ImageButton
+                        android:id="@+id/buttonOpenObjective003"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Open objective"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chevron_right"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="#36332F" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <!-- ====================================================
+                 OBJECTIVE 017 / FINAL OBJECTIVE
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/objectiveCard017"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#E7E1D7"
+                app:strokeWidth="1dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="104dp"
+                    android:padding="17dp">
+
+
+                    <TextView
+                        android:id="@+id/textObjectiveNumber017"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="#F1EDE5"
+                        android:gravity="center"
+                        android:text="17"
+                        android:textColor="#3D3933"
+                        android:textSize="12sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <LinearLayout
+                        android:id="@+id/objectiveInformation017"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toEndOf="@id/textObjectiveNumber017"
+                        app:layout_constraintEnd_toStartOf="@id/buttonOpenObjective017"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveTitle017"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Diode models, Piecewise-Linear"
+                            android:textColor="#1B1A18"
+                            android:textSize="16sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveDescription017"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Apply diode models and piecewise-linear analysis to practical electronic circuits."
+                            android:textColor="#77736B"
+                            android:textSize="12sp"
+                            android:fontFamily="sans"
+                            android:lineSpacingExtra="2dp" />
+
+
+                        <TextView
+                            android:id="@+id/textObjectiveStatus017"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="Not started"
+                            android:textColor="#8A857C"
+                            android:textSize="10sp"
+                            android:fontFamily="sans"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <ImageButton
+                        android:id="@+id/buttonOpenObjective017"
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Open objective"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_chevron_right"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:tint="#36332F" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <!-- ====================================================
+                 END OF MODULE
+                 ==================================================== -->
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/moduleEndCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                app:cardBackgroundColor="#F1EDE5"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="0dp"
+                app:strokeColor="#DDD6CA"
+                app:strokeWidth="1dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+
+                    <TextView
+                        android:id="@+id/textModuleEndTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="End of module"
+                        android:textColor="#37342F"
+                        android:textSize="13sp"
+                        android:fontFamily="sans"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/textModuleEndDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="More objectives can be added as your course develops."
+                        android:textColor="#77736B"
+                        android:textSize="11sp"
+                        android:fontFamily="sans" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <!-- Bottom breathing room -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="18dp" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

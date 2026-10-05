@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="7dp"
+    android:background="@drawable/bg_qorrah_popup">
+
+    <!-- =========================================================
+         WRITE
+         ========================================================= -->
+
+    <LinearLayout
+        android:id="@+id/actionWrite"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Write"
+            android:src="@drawable/ic_qorrah_write"
+            android:tint="#37332D" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="Write"
+            android:textColor="#24211D"
+            android:textSize="14sp"
+            android:fontFamily="sans"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <!-- =========================================================
+         CAPTURE
+         ========================================================= -->
+
+    <LinearLayout
+        android:id="@+id/actionCapture"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Capture"
+            android:src="@drawable/ic_qorrah_capture"
+            android:tint="#37332D" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="Capture"
+            android:textColor="#24211D"
+            android:textSize="14sp"
+            android:fontFamily="sans"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <!-- =========================================================
+         IMPORT
+         ========================================================= -->
+
+    <LinearLayout
+        android:id="@+id/actionImport"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Import"
+            android:src="@drawable/ic_qorrah_import"
+            android:tint="#37332D" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="Import"
+            android:textColor="#24211D"
+            android:textSize="14sp"
+            android:fontFamily="sans"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <!-- =========================================================
+         RECORD
+         ========================================================= -->
+
+    <LinearLayout
+        android:id="@+id/actionRecord"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Record"
+            android:src="@drawable/ic_qorrah_record"
+            android:tint="#37332D" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="Record"
+            android:textColor="#24211D"
+            android:textSize="14sp"
+            android:fontFamily="sans"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <!-- =========================================================
+         SHARE
+         ========================================================= -->
+
+    <LinearLayout
+        android:id="@+id/actionShareLink"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="Share"
+            android:src="@drawable/ic_qorrah_share"
+            android:tint="#37332D" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:text="Share"
+            android:textColor="#24211D"
+            android:textSize="14sp"
+            android:fontFamily="sans"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
