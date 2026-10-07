@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -716,11 +716,5 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-<!--   put the chamber over your existing learning screen -->
-    <include
-        android:id="@+id/qorrahCameraOverlay"
-        layout="@layout/view_qorrah_camera_chamber"
-        android:visibility="gone" />
 
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

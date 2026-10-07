@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/captureRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <!--
+        The learning-content Activity remains visible underneath this
+        translucent Activity.
+
+        Only the lower camera chamber is visually introduced by Qorrah.
+    -->
+
+    <com.example.qorrah_app.DomeFrameLayout
+        android:id="@+id/cameraChamber"
+        android:layout_width="match_parent"
+        android:layout_height="430dp"
+        android:layout_gravity="bottom">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/cameraPreview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#171512"
+            app:implementationMode="performance"
+            app:scaleType="fillCenter" />
+
+        <!-- Top status area inside camera chamber -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="22dp"
+            android:paddingTop="24dp"
+            android:paddingEnd="22dp"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/captureModeLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Capture"
+                android:textColor="#FFFDF8"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/captureCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_capture_count"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="6dp"
+                android:text="0"
+                android:textColor="#FFFDF8"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <!-- Bottom controls -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:layout_gravity="bottom">
+
+            <!-- Photo / Video mode selector -->
+            <!-- Allow user to conviniently switch btwn photo and video capture modes-->
+            <LinearLayout
+                android:id="@+id/modeSwitcher"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_camera_mode_switcher"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp">
+
+                <TextView
+                    android:id="@+id/photoMode"
+                    android:layout_width="72dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="Photo"
+                    android:textColor="#24211D"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/videoMode"
+                    android:layout_width="72dp"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:text="Video"
+                    android:textColor="#8B857B"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Done appears after first successful capture -->
+<!--            Allows user to exit Capture mode with saved files -->
+            <TextView
+                android:id="@+id/buttonDone"
+                android:layout_width="76dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="22dp"
+                android:background="@drawable/bg_camera_done"
+                android:gravity="center"
+                android:text="Done"
+                android:textColor="#FFFDF8"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <!-- Main shutter -->
+<!--            The big round white button that initiates video / image capture-->
+            <FrameLayout
+                android:id="@+id/shutterButton"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_camera_shutter"
+                android:clickable="true"
+                android:focusable="true">
+
+                <View
+                    android:id="@+id/shutterInner"
+                    android:layout_width="58dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_camera_shutter_inner" />
+
+            </FrameLayout>
+
+            <!-- Close camera mode -->
+<!--            Allows user to exit Capture mode without saving -->
+            <TextView
+                android:id="@+id/buttonClose"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="22dp"
+                android:background="@drawable/bg_camera_control"
+                android:gravity="center"
+                android:text="×"
+                android:textColor="#FFFDF8"
+                android:textSize="25sp"
+                android:textStyle="normal" />
+
+        </FrameLayout>
+
+    </com.example.qorrah_app.DomeFrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F1E8">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="22dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/buttonBackReview"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="#24211D"
+            android:textSize="34sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Review captures"
+                android:textColor="#24211D"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/reviewSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Review before adding to your knowledge"
+                android:textColor="#777168"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Main layered capture area -->
+    <FrameLayout
+        android:id="@+id/reviewStage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="105dp"
+        android:layout_marginBottom="115dp">
+
+        <!-- Previous capture -->
+        <ImageView
+            android:id="@+id/previousCapture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginBottom="38dp"
+            android:alpha="0.45"
+            android:rotation="-8"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <!-- Next capture -->
+        <ImageView
+            android:id="@+id/nextCapture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginBottom="38dp"
+            android:alpha="0.45"
+            android:rotation="8"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <!-- Current capture -->
+        <FrameLayout
+            android:id="@+id/currentCaptureFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_review_capture">
+
+            <ImageView
+                android:id="@+id/currentCapture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/videoIndicator"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_video_indicator"
+                android:gravity="center"
+                android:text="▶"
+                android:textColor="#FFFDF8"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+        <!-- Long-press replacement control -->
+        <TextView
+            android:id="@+id/buttonReplace"
+            android:layout_width="88dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_review_action"
+            android:gravity="center"
+            android:text="Replace"
+            android:textColor="#FFFDF8"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <!-- Left navigation -->
+        <TextView
+            android:id="@+id/buttonPrevious"
+            android:layout_width="58dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_vertical|start"
+            android:gravity="center"
+            android:text="‹"
+            android:textColor="#665F56"
+            android:textSize="42sp" />
+
+        <!-- Right navigation -->
+        <TextView
+            android:id="@+id/buttonNext"
+            android:layout_width="58dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_vertical|end"
+            android:gravity="center"
+            android:text="›"
+            android:textColor="#665F56"
+            android:textSize="42sp" />
+
+    </FrameLayout>
+
+    <!-- Bottom controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
+
+        <TextView
+            android:id="@+id/buttonDelete"
+            android:layout_width="92dp"
+            android:layout_height="46dp"
+            android:background="@drawable/bg_review_secondary"
+            android:gravity="center"
+            android:text="Delete"
+            android:textColor="#5C554C"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/buttonConfirm"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_review_confirm"
+            android:gravity="center"
+            android:text="Use captures"
+            android:textColor="#FFFDF8"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>
